@@ -32,7 +32,7 @@ static struct file_operations proc_ops3 = {
 };
 
 int start = 0;
-/* This function is called when the module is loaded. */
+/* This proc_init funtion will be called when the module is loaded. */
 int proc_init(void)
 {
     start = jiffies;
@@ -43,7 +43,7 @@ int proc_init(void)
     return 0;
 }
 
-/* This function is called when the module is removed. */
+/* This proc_exit function will be called when the module is removed. */
 void proc_exit(void)
 {
     /* removes the /proc/hello entry */
@@ -53,7 +53,7 @@ void proc_exit(void)
 }
 
 
-/* This function is called each time /proc/helloworld is read */
+/* This proc_readfunction will be called each time /proc/helloworld is read */
 ssize_t proc_read(struct file *file, char __user *usr_buf, size_t count, loff_t *pos)
 {
   int rv = 0;
@@ -109,5 +109,5 @@ ssize_t proc_read_seconds(struct file *file, char __user *usr_buf, size_t count,
 module_init(proc_init);
 module_exit(proc_exit);
 MODULE_LICENSE("GPL");
-MODULE_DESCRIPTION("HelloWorld Module");
-MODULE_AUTHOR("Zahid Ali and Abdul Samad");
+MODULE_DESCRIPTION("this is descriptoion of module");
+MODULE_AUTHOR("Zahid Ali");
